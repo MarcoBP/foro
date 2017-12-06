@@ -40,14 +40,14 @@ class RouteServiceProvider extends ServiceProvider
         // $this->mapWebRoutes();
         // Definimos 3 archivos para las rutas Web
 
-        // Rutas Públicas
-        $this->mapPublicRoutes();
-
         // Rutas Invitados
         $this->mapGuestRoutes();
 
         // Rutas Usuarios Autenticados
         $this->mapAuthRoutes();
+
+        // Rutas Públicas
+        $this->mapPublicRoutes();
     }
 
     /**
