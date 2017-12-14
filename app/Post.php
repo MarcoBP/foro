@@ -24,4 +24,9 @@ class Post extends Model
     {
         return route('posts.show', [$this->id, $this->slug]);
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
