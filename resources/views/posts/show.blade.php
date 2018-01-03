@@ -23,9 +23,13 @@
         <article class="{{ $comment->answer ? 'answer' : '' }}">
             {{ $comment->comment }}
             {{ $comment->post->user }}
+
+            @if(Gate::allows('accept', $comment) && !$comment->answer)
             {!! Form::open(['route' => ['comments.accept', $comment], 'method' => 'POST']) !!}
                 <button type="submit">Aceptar Respuesta</button>
             {!! Form::close() !!}
+            @endif
+
         </article>
     @endforeach
 
