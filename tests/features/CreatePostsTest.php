@@ -1,5 +1,7 @@
 <?php
 
+use app\Post;
+
 class CreatePostsTest extends FeatureTestCase
 {
     public function test_a_user_create_a_post()
@@ -26,9 +28,18 @@ class CreatePostsTest extends FeatureTestCase
             'slug' => 'esta-es-una-pregunta',
         ]);
 
+        $post = Post::first();
+
+        // Test the author is subscribed automatically to the post.
+        $this->seeInDatabase('subscriptions', [
+            'user_id' => $user->id,
+            'post_id' => $post->id,
+        ]);
+
         // Test a user is redirected to the posts details after creating it.
+        $this->seePageIs($post->url);
         //$this->seeInElement('h1', $title);
-        $this->see($title);
+        //$this->see($title);
     }
 
 /**
