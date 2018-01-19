@@ -1,7 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: USUARIO
- * Date: 28/11/2017
- * Time: 8:40 PM
- */
+
+Route::get('register', [
+    'uses' => 'RegisterController@create',
+    'as' => 'register'
+]);
+
+Route::post('register', [
+    'uses' => 'RegisterController@store',
+]);
+
+Route::get('register_confirmation', [
+    'uses' => 'RegisterController@confirmation',
+    'as' => 'register_confirmation'
+]);

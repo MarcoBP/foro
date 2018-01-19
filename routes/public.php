@@ -16,7 +16,8 @@ Route::get('/', [
     'as' => 'posts.index'
     ]);
 
-Auth::routes();
+// Se elimina para validar acceso por Token, no por contraseña
+// Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
