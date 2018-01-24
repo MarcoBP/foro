@@ -10,6 +10,8 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('token') }}">
                         {{ csrf_field() }}
 
+                        {!! Alert::render() !!}
+
                         {!! Field::email('email') !!}
 
                         <div class="form-group">
