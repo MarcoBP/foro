@@ -1,9 +1,13 @@
 <?php
 
 use \Illuminate\Foundation\Testing\DatabaseTransactions;
+use Tests\CreatesApplication;
+use Tests\TestsHelper;
 
-class FeatureTestCase extends TestCase
+class FeatureTestCase extends \Laravel\BrowserKitTesting\TestCase
 {
+    use TestsHelper;
+    use CreatesApplication;
     use DatabaseTransactions;
 
     public function seeErrors(array $fields)

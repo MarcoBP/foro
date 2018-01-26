@@ -36,8 +36,8 @@ class RegistrationTest extends FeatureTestCase
 
         $this->assertNotNull($token);
 
-        Mail::assertSentTo($user, TokenMail::class, function ($mail) use ($token) {
-            return $mail->token->id == $token->id;
+        Mail::assertSent(TokenMail::class, function ($mail) use ($token, $user) {
+            return $mail->hasTo($user) && $mail->token->id == $token->id;
         });
 
         $this->visitRoute('register_confirmation');
